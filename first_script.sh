@@ -23,9 +23,16 @@ lsCommand=$(ls)
 echo "ls returns: " $lsCommand
 
 # Single quotes vs double quotes
-singleVariable='Hello, $USER!' 
-doubleVariable="HEllo, $USER!"
+singleVariable='Hello, $USER!' # assign to variable exactly what is in quotes
+doubleVariable="HEllo, $USER!" # perform substitutions before assigning to variable
 
 echo $singleVariable
 echo $doubleVariable
+
+## Input
+echo Hi! What is your name?
+read name
+echo Nice, to meet you, $name!
+read -p "What is your username?" username
+read -sp "What is you password?" userpass
 
