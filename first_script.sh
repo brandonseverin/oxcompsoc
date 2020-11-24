@@ -30,15 +30,15 @@ echo $singleVariable
 echo $doubleVariable
 
 ## Input
-echo Hi! What is your name?
-read name
-echo Nice, to meet you, $name!
-read -p "What is your username?" username
-read -sp "What is you password?" userpass
+#echo Hi! What is your name?
+#read name
+#echo Nice, to meet you, $name!
+#read -p "What is your username?" username
+#read -sp "What is you password?" userpass
 
 # More than one input at a time
-read -p "What are your friends' names?" friend1 friend2 friend3
-echo "Your friends are $friend1, $friend2 and $friend3"
+#read -p "What are your friends' names?" friend1 friend2 friend3
+#echo "Your friends are $friend1, $friend2 and $friend3"
 
 # Let command
 let var1=1+2 #var 1 now contains 3
@@ -61,3 +61,56 @@ var6=$((1 + 2)) # contains 3
 var7=$((1+2)) # var6 contains 3
 var8=$(($var6 + $var7)) # var8 now contains 6
 ((var8--)) # var8 now contains 5
+
+# If statements
+if [ $1 = $RANDOM ] # N.B. SPACES are very important
+then
+	That is a weird coincidence!
+fi
+
+# Else if statements
+if [ $RANDOM -gt $1 ]
+then 
+	echo Your number is smaller than the random one!
+else 
+	echo Your number is bigger than the random one!
+fi
+
+# Nested if statements
+myvar1=3
+myvar2=100
+if [ $myvar1 -lt $1 ]
+then
+	echo Your number is larger than $myvar1!
+	if [ $myvar2 -lt $1 ]
+	then
+		echo Your number is also larger than $myvar2!
+	else
+		echo Your number is smaller than $myvar2!
+	fi
+fi
+
+# Elif statements
+read -p "What is your age? " age
+if [ $age -gt 18 ]
+then
+	echo You can go out!
+elif [ $answer = yes ]
+then 
+	echo You can go out!
+else 
+	echo You cannot go out!
+fi
+
+# Combining conditions
+if [ -d $1 ] && [ -d $1 ]
+then
+	echo Both test1 and test2 are directories
+elif [ -d $1 ] || [-d $2 ]
+then
+	echo Only one of the files is a directory
+else
+	echo Neither of the files is a directory
+fi
+
+
